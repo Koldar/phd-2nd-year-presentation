@@ -1,0 +1,113 @@
+%%
+%% This is file `phdGeneral.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% phdGeneral.dtx  (with options: `package')
+%% This is a generated file.
+%% 
+%% Copyright (C) 2017 i by Massimo Bono
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% \iffalse ********************* COPY RIGHT ************************ \fi
+
+
+%% \iffalse ******************* PACKAGE INFORMATION *************** \fi
+
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{\jobname}[2017/10/02 1.0 \jobname .dtx file]
+
+ \RequirePackage{graphicx}
+ \RequirePackage{xparse}
+ \RequirePackage{float}
+ \RequirePackage{tikz}
+ \RequirePackage{etoolbox}
+ \RequirePackage{xcolor}
+
+%% \iffalse************** GENERATES PDF INSTRUCTIONS ************ \fi
+
+
+%% \iffalse ************* PACKAGE CHANGES *************************** \fi
+
+
+%% \iffalse *********** PARSE PROVIDES PACKAGE ******************** \fi
+
+
+%% \iffalse ******** COMMANDS THAT YOU DON'T WANT TO INDEX ******* \fi
+
+
+%% \iffalse ************* CHECKSUM **************************** \fi
+
+
+%% \iffalse **************** MANUAL TITLE ********************* \fi
+
+
+
+
+\newcommand{\addToInputPath}[1]{%
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{#1}% append
+\input@path
+\makeatother
+}
+
+\newcommand{\addSrcFolder}[1]{%
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{#1}% append
+\makeatother
+}
+
+\newcommand{\addImagesFolder}[1]{%
+\graphicspath{#1}
+}
+
+\NewDocumentCommand{\addAlgorithmFolder}{m}{%
+\addSrcFolder{#1}
+}
+
+
+\NewDocumentCommand{\includeTikz}{m O{1.0}}{%
+	\scalebox{#2}{%
+		\begin{tikzpicture}%
+			\input{#1.tikz}%
+		\end{tikzpicture}%
+	}%
+}
+
+%https://en.wikibooks.org/wiki/TeX/ifmmode
+\NewDocumentCommand{\ifMathMode}{m m}{%
+	\ifmmode{#1}\else{#2}\fi%
+}
+
+%nestable math environment
+\NewDocumentCommand{\nmath}{m}{%
+	\ifMathMode{#1}{${#1}$}%
+}
+
+\ProvideDocumentCommand{\ie}{}{%
+	i.e.,%
+}
+
+\ProvideDocumentCommand{\eg}{}{%
+	e.g.,%
+}
+
+\NewDocumentCommand{\sQuote}{m}{%
+	`#1'%
+}
+
+%% \iffalse ********************** END SOURCE CODE ********************************** \fi
+
+\endinput
+%%
+%% End of file `phdGeneral.sty'.

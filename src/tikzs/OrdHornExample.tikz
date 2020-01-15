@@ -1,0 +1,29 @@
+\tikzstyle{vertex} = [
+	shape=circle,  
+	draw=blue!50, %draw the border to the node
+	fill=blue!20, %fill the space of the node
+	thick,
+	minimum size=4mm, %minimum size of the nodes
+	distance=1cm
+];
+
+
+\begin{scope}[scale=1.3,shift={(0,0)}]
+	\node[vertex](1) at (-1,-1) {$X^{-}$};
+	\node[vertex](2) at (+1,-1) {$Y^{-}$};
+	\node[vertex](3) at (-1,+1) {$X^{+}$};
+	\node[vertex](4) at (+1,+1) {$Y^{+}$};
+\end{scope}
+
+%sigma 1
+\draw [->,-{Latex[length=3mm, width=2mm]}] (1) to node[auto,font=\large] {$\leq$} (2);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (1) to node[auto,font=\large] {$<$} (4);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (3) to node[auto,font=\large] {$>$} (2);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (3) to node[auto,font=\large] {$\leq$} (4);
+
+\draw [->,-{Latex[length=3mm, width=2mm]}] (1) to node[auto,font=\large] {$<$} (3);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (2) to node[auto,font=\large] {$<$} (4);
+
+%sigma 2
+\draw [-.,color=blue] (1) to [bend left=-30] node[auto,font=\large,color=blue] {$\noteq$} (2);
+\draw [-.,color=blue] (3) to [bend left=+30] node[auto,font=\large,color=blue] {$\noteq$} (4);

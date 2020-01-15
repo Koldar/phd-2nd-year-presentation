@@ -1,0 +1,180 @@
+
+\NewDocumentCommand{\tuple}{m}{%
+	\nmath{\langle{#1}\rangle}%
+}
+
+\NewDocumentCommand{\induced}{m m}{%
+	\nmath{I(#1, #2)}%
+}
+
+\NewDocumentCommand{\set}{m}{%
+	\nmath{\{#1\}}%
+}
+
+\NewDocumentCommand{\code}{m}{%
+	\texttt{#1}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% ALIAS %%%%%%%%%%%%%%%%%%
+
+\NewDocumentCommand{\subgraphvar}{}{%
+	\nmath{\mathscr{F}}%
+}
+
+\NewDocumentCommand{\sccsubsetvar}{m}{%
+	\nmath{S}_{#1}%
+}
+
+\NewDocumentCommand{\true}{}{%
+	\texttt{true}%
+}
+
+\NewDocumentCommand{\false}{}{%
+	\texttt{false}%
+}
+
+\NewDocumentCommand{\graph}{}{%
+	\nmath{\mathcal{G}}%
+}
+
+\NewDocumentCommand{\epoch}{}{%
+	\nmath{\rho}%
+}
+
+\NewDocumentCommand{\chain}{O{\csp{}}}{%
+	\nmath{\mathcal{C}(#1)}%
+}
+
+\newcommand{\noteq}{\nmath{\not =}}
+
+\NewDocumentCommand{\fsccs}{}{%
+	\nmath{S}%
+}
+
+\NewDocumentCommand{\elt}{O{\scc{}}}{%
+	\nmath{E_{<}[#1]}%
+}
+
+\NewDocumentCommand{\eneq}{O{\scc{}}}{%
+	\nmath{E_{\not =}[#1]}%
+}
+
+\NewDocumentCommand{\fscc}{}{%
+	\nmath{\sigma_{\texttt{flawed}}}%
+}
+
+\NewDocumentCommand{\scc}{}{%
+	\nmath{\sigma}%
+}
+
+\NewDocumentCommand{\csp}{}{%
+	\nmath{\Theta}%
+}
+
+\NewDocumentCommand{\IACSP}{}{%
+	\nmath{\Omega}%
+}
+
+\NewDocumentCommand{\piOne}{O{\IACSP{}}}{%
+	\nmath{\pi_{1}(#1)}%
+}
+
+\NewDocumentCommand{\piTwo}{O{\IACSP{}}}{%
+	\nmath{\pi_{2}(#1)}%
+}
+
+\NewDocumentCommand{\SigmaOne}{}{%
+	\nmath{\Sigma_1}%
+}
+
+\NewDocumentCommand{\SigmaTwo}{}{%
+	\nmath{\Sigma_2}%
+}
+
+\NewDocumentCommand{\edge}{m m m}{%
+	\nmath{(}#1\nmath{, }#2\nmath{, }#3\nmath{)}%
+}
+
+\NewDocumentCommand{\tlGraph}{}{%
+	TL-Graph%
+}
+
+\NewDocumentCommand{\DPASAT}{}{%
+	\textsc{Dpasat}%
+}
+
+\NewDocumentCommand{\DOHSAT}{}{%
+	\textsc{Dohsat}%
+}
+
+
+\NewDocumentCommand{\OHSAT}{}{%
+	\textsc{OrdHorn-SAT}%
+}
+
+\NewDocumentCommand{\PC}{}{%
+	\textsc{PC}%
+}
+
+\NewDocumentCommand{\dpsat}{}{%
+	\texttt{D-PSAT}%
+}
+
+\NewDocumentCommand{\disat}{}{%
+	\texttt{D-ISAT}%
+}
+
+\NewDocumentCommand{\conv}{m}{${#1}^{\smile}$}
+
+\NewDocumentCommand{\iab}{}{%
+	{\sf b}%
+}
+
+\NewDocumentCommand{\iabi}{}{%
+	\conv{\sf b}%
+}
+
+\NewDocumentCommand{\iam}{}{%
+	{\sf m}%
+}
+
+\NewDocumentCommand{\iami}{}{%
+	\conv{\sf m}%
+}
+
+\NewDocumentCommand{\iad}{}{%
+	{\sf d}%
+}
+
+\NewDocumentCommand{\iadi}{}{%
+	\conv{\sf d}%
+}
+
+\NewDocumentCommand{\ias}{}{%
+	{\sf s}%
+}
+
+\NewDocumentCommand{\iasi}{}{%
+	\conv{\sf s}%
+}
+
+\NewDocumentCommand{\iaf}{}{%
+	{\sf f}%
+}
+
+\NewDocumentCommand{\iafi}{}{%
+	\conv{\sf f}%
+}
+
+\NewDocumentCommand{\iao}{}{%
+	{\sf o}%
+}
+
+\NewDocumentCommand{\iaoi}{}{%
+	\conv{\sf o}%
+}
+
+\NewDocumentCommand{\iaeq}{}{%
+	{\sf $=$}%
+}

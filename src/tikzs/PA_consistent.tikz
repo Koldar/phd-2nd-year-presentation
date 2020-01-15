@@ -1,0 +1,26 @@
+\tikzstyle{vertex} = [
+	shape=circle,  
+	draw=blue!50, %draw the border to the node
+	fill=blue!20, %fill the space of the node
+	thick,
+	minimum size=4mm, %minimum size of the nodes
+	distance=1cm
+];
+
+
+\begin{scope}[shift={(0, 0)}]
+	\node[vertex](A) at (60:1.3cm) {A};
+	\node[vertex](B) at (180:1.3cm) {B};
+	\node[vertex](C) at (-60:1.3cm) {C};
+\end{scope}
+
+\begin{scope}[shift={(+4, 0)}]
+	\node[vertex](D) at (0,0) {D};
+\end{scope}
+
+\draw [->,-{Latex[length=3mm, width=2mm]}] (A) to node[auto,font=\large] {$\leq$} (B);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (B) to node[auto,font=\large] {$\leq$} (C);
+\draw [->,-{Latex[length=3mm, width=2mm]}] (C) to node[auto,font=\large] {$\leq$} (A);
+
+\draw [->,-{Latex[length=3mm, width=2mm]}] (A) to node[auto,font=\large] {$\leq$} (D);
+\draw [-.] (D) to node[auto,font=\large] {$\noteq$} (C);

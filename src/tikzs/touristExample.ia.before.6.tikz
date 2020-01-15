@@ -1,0 +1,63 @@
+\tikzstyle{vertex} = [
+	shape=circle,  
+	draw=blue!50, %draw the border to the node
+	fill=blue!20, %fill the space of the node
+	thick,
+	minimum size=4mm, %minimum size of the nodes
+	distance=1cm
+];
+\pgfarrowsdeclare{directEdge}{directEdge}{%
+	\arrowsize=0.2pt
+	\advance\arrowsize by .5\pgflinewidth
+	\pgfarrowsleftextend{-4\arrowsize-.5\pgflinewidth}
+	\pgfarrowsrightextend{.5\pgflinewidth}
+}{%
+	\arrowsize=1pt
+	\advance\arrowsize by .5\pgflinewidth
+	\pgfsetdash{}{0pt} % do not dash
+	\pgfsetroundjoin % fix join
+	\pgfsetroundcap % fix cap
+	\pgfpathmoveto{\pgfpointorigin}
+	\pgfpathlineto{\pgfpoint{-6\arrowsize}{2.2\arrowsize}}
+	\pgfpathlineto{\pgfpoint{-6\arrowsize}{-2.2\arrowsize}}
+	\pgfpathclose
+	\pgfusepathqfill
+}
+
+\begin{scope}[scale=1.0,shift={(-3,0)}]
+	\node[vertex](Tw) at (60:2.0cm) {Tw};
+	\node[vertex](Mu) at (180:2.0cm) {Mu};
+	\node[vertex](Ch) at (-60:2.0cm) {Ch};
+\end{scope}
+
+\begin{scope}[scale=1.0,shift={(3,0)}]
+	\node[vertex](Lu) at (180:2.0cm) {Lu};
+	\node[vertex](Ca) at (-60:2.0cm) {Ca};
+	\node[vertex](Te) at (+60:2.0cm) {Te};
+\end{scope}
+
+\begin{scope}[scale=1.0,shift={(3,-2)}]
+	\node[vertex](Ga) at (180:2.0cm) {Ga};
+\end{scope}
+
+%mandatory constraints
+\draw [-directEdge] (Tw) to[] node[pos=0.5,xshift=+0pt,yshift=7pt] {All} (Lu);
+\draw [-directEdge] (Ch) to[] node[pos=0.3,xshift=+0pt,yshift=7pt] {All} (Lu);
+\draw [-directEdge] (Mu) to[] node[pos=0.2,xshift=+0pt,yshift=7pt] {All} (Lu);
+
+\draw [-directEdge] (Lu) to[] node[pos=0.5,xshift=+0pt,yshift=7pt] {All} (Te);
+\draw [-directEdge] (Lu) to[] node[pos=0.7,xshift=+0pt,yshift=7pt] {All} (Ca);
+
+%first tourist
+\draw [-directEdge] (Tw) to[] node[pos=0.4,xshift=+0pt,yshift=11pt] {T1} (Ga);
+\draw [-directEdge] (Ga) to[] node[pos=0.5,xshift=+0pt,yshift=7pt] {T1} (Ca);
+\draw [-directEdge,dashed] (Ca) to[] node[pos=0.5,xshift=-8pt,yshift=0pt] {T1} (Te);
+	
+%second tourist
+\draw [-directEdge,dashed] (Tw) to[] node[pos=0.3,xshift=+8pt,yshift=-5pt] {T2} (Mu);
+\draw [-directEdge] (Mu) to[] node[pos=0.5,xshift=+0pt,yshift=7pt] {T2} (Ch);
+\draw [-directEdge] (Te) to[] node[pos=0.5,xshift=+0pt,yshift=13pt] {T2} (Ga);
+
+%third tourist
+\draw [-directEdge,dashed] (Ga) to[] node[pos=0.5,xshift=+0pt,yshift=7pt] {T3} (Ch);
+\draw [-directEdge] (Ch) to[] node[pos=0.2,xshift=-8pt,yshift=0pt] {T3} (Tw);

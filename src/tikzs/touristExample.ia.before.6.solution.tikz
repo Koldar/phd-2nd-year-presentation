@@ -1,0 +1,42 @@
+\tikzstyle{vertex} = [
+	shape=circle,  
+	fill=black, %fill the space of the node
+	thick,
+	minimum size=2mm, %minimum size of the nodes
+	inner sep=0pt,
+	distance=2cm
+];
+\pgfarrowsdeclare{directEdge}{directEdge}{%
+	\arrowsize=0.2pt
+	\advance\arrowsize by .5\pgflinewidth
+	\pgfarrowsleftextend{-4\arrowsize-.5\pgflinewidth}
+	\pgfarrowsrightextend{.5\pgflinewidth}
+}{%
+	\arrowsize=1pt
+	\advance\arrowsize by .5\pgflinewidth
+	\pgfsetdash{}{0pt} % do not dash
+	\pgfsetroundjoin % fix join
+	\pgfsetroundcap % fix cap
+	\pgfpathmoveto{\pgfpointorigin}
+	\pgfpathlineto{\pgfpoint{-6\arrowsize}{2.2\arrowsize}}
+	\pgfpathlineto{\pgfpoint{-6\arrowsize}{-2.2\arrowsize}}
+	\pgfpathclose
+	\pgfusepathqfill
+}
+
+\begin{scope}[scale=1.0,shift={(0,0)}]
+	\node[draw=none,label distance=2.5cm,label=below right:\Large{time}](ZERO) at (0, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Mu}](Mu) at (1, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Ch}](Ch) at (2, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Tw}](Tw) at (3, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Lu}](Lu) at (4, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Te}](Te) at (5, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Ga}](Ga) at (6, 0) {};
+	\node[vertex,label distance=1.6cm,label=above:\Large{Ca}](Ca) at (7, 0) {};
+	\node[draw=none](INF) at (8, 0) {};
+\end{scope}
+
+\draw [-directEdge] (ZERO) to[] (INF);
+
+
+

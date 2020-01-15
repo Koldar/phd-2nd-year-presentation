@@ -1,0 +1,80 @@
+\tikzstyle{vertex} = [
+	shape=circle,  
+	draw=blue!50, %draw the border to the node
+	fill=blue!20, %fill the space of the node
+	thick,
+	minimum size=2mm, %minimum size of the nodes
+	distance=0.5cm
+];
+
+
+%first vortex
+
+\begin{scope}[shift={(-2.6,0)}]
+	\node[vertex,draw=red!50,fill=red!20](AM) at (45:1.1cm) {$A^{-}$};
+	\node[vertex,draw=red!50,fill=red!20](AP) at (45:2.7cm) {$A^{+}$};
+	\node[vertex,draw=red!50,fill=red!20](BM) at (125:1.1cm) {$B^{-}$};
+	\node[vertex,draw=red!50,fill=red!20](BP) at (125:2.7cm) {$B^{+}$};
+	\node[vertex,draw=red!50,fill=red!20](CM) at (225:1.1cm) {$C^{-}$};
+	\node[vertex,draw=red!50,fill=red!20](CP) at (225:2.7cm) {$C^{+}$};
+	\node[vertex,draw=red!50,fill=red!20](DM) at (315:1.1cm) {$D^{-}$};
+	\node[vertex,draw=red!50,fill=red!20](DP) at (315:2.7cm) {$D^{+}$};
+\end{scope}
+
+\draw [->] (AM) to node[auto] {$<$} (AP);
+\draw [->] (BM) to node[auto] {$<$} (BP);
+\draw [->] (CM) to node[auto] {$<$} (CP);
+\draw [->] (DM) to node[auto] {$<$} (DP);
+
+\draw [->] (AM) to node[auto] {$\leq$} (BM);
+\draw [->] (BM) to node[auto] {$\leq$} (CM);
+\draw [->] (CM) to node[auto] {$\leq$} (DM);
+\draw [->] (DM) to node[auto] {$\leq$} (AM);
+
+\draw [->] (AM) to [bend left=-30] node[auto] {$<$} (BP);
+\draw [->] (BM) to [bend left=-30] node[auto] {$<$} (CP);
+\draw [->] (CM) to [bend left=-30] node[auto] {$<$} (DP);
+\draw [->] (DM) to [bend left=-30] node[auto] {$<$} (AP);
+
+%second vortex
+
+\begin{scope}[shift={(+2.6,0)}]
+	\node[vertex,draw=blue!50,fill=blue!20](EM) at (45:1.1cm) {$E^{-}$};
+	\node[vertex,draw=blue!50,fill=blue!20](EP) at (45:2.7cm) {$E^{+}$};
+	\node[vertex,draw=blue!50,fill=blue!20](FM) at (125:1.1cm) {$F^{-}$};
+	\node[vertex,draw=blue!50,fill=blue!20](FP) at (125:2.7cm) {$F^{+}$};
+	\node[vertex,draw=blue!50,fill=blue!20](GM) at (225:1.1cm) {$G^{-}$};
+	\node[vertex,draw=blue!50,fill=blue!20](GP) at (225:2.7cm) {$G^{+}$};
+	\node[vertex,draw=blue!50,fill=blue!20](HM) at (315:1.1cm) {$H^{-}$};
+	\node[vertex,draw=blue!50,fill=blue!20](HP) at (315:2.7cm) {$H^{+}$};
+\end{scope}
+
+\draw [->] (EM) to node[auto] {$<$} (EP);
+\draw [->] (FM) to node[auto] {$<$} (FP);
+\draw [->] (GM) to node[auto] {$<$} (GP);
+\draw [->] (HM) to node[auto] {$<$} (HP);
+
+\draw [->] (EM) to node[auto] {$\leq$} (FM);
+\draw [->] (GM) to node[auto] {$\leq$} (HM);
+\draw [->] (HM) to node[auto] {$\leq$} (EM);
+
+\draw [->] (FP) to node[auto] {$\leq$} (GP);
+
+\draw [->] (EM) to [bend left=-30]node[auto] {$<$} (FP);
+\draw [->] (FM) to [bend left=-30]node[auto] {$<$} (GP);
+\draw [->] (GM) to [bend left=-30]node[auto] {$<$} (HP);
+\draw [->] (HM) to [bend left=-30]node[auto] {$<$} (EP);
+
+% inter vortexes
+
+\draw [-.,color=purple,thick] (DM) to [bend left=-30] node[auto,color=purple,right] {$\bm{\noteq}$} (AM);
+\draw [->,color=purple,thick] (DP) to node[auto,color=purple,right] {$\bm{\leq}$} (AP);
+
+\draw [->] (GM) to node[auto] {$<$} (DP);
+\draw [->] (GP) to node[auto] {$\leq$} (DP);
+
+\draw [->] (AM) to [bend left=-30]node[auto] {$<$} (FP);
+\draw [->] (AP) to node[auto] {$\leq$} (FP);
+
+\draw [-.,color=orange,thick] (FP) to [bend left=-30]node[auto] {$\bm{\noteq}$} (GP);
+\draw [->,color=orange,thick] (FM) to node[auto] {$\bm{\leq}$} (GM);
